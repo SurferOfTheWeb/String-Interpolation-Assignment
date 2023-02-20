@@ -62,7 +62,7 @@ else if (resp == "2")
             Console.WriteLine($"\nWeek of {date:MMM}, {date:dd}, {date:yyyy}");
             Console.WriteLine($" Su Mo Tu We Th Fr Sa Tot Avg ");
             Console.WriteLine($" -- -- -- -- -- -- -- --- --- ");
-            Console.WriteLine($" {entryInt[0]:D1} {entryInt[1]:D1} {entryInt[2]:D1} {entryInt[3]:D1} {entryInt[4]:D1} {entryInt[5]:D1} {entryInt[6]:D1} {entryInt[7]:D1} {avg}");
+            Console.WriteLine($" {entryInt[0]:D2} {entryInt[1]:D2} {entryInt[2]:D2} {entryInt[3]:D2} {entryInt[4]:D2} {entryInt[5]:D2} {entryInt[6]:D2} {entryInt[7]:D3} {avg}");
         }
     }
  
