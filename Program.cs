@@ -10,8 +10,6 @@ DateTime today = DateTime.Now;
 
 if (resp == "1")
 {
-    // create data file
-
     // ask a question
     Console.WriteLine("How many weeks of data is needed?");
     // input the response (convert to int)
@@ -45,18 +43,20 @@ if (resp == "1")
 }
 else if (resp == "2")
 {
-    // TODO: parse data file
+    // 1. Program takes in all information from file
     string txtReadOut = new StreamReader("data.txt").ReadToEnd();;
 
+    // 2. Program strips all information down to lines, skipping the final blank one
     List<string> lines = new List<string>(txtReadOut.Split("\n").SkipLast(1));
     
     foreach(string line in lines){
         if(line != File.ReadLines("data.txt").Last()){
+            // 3. Program splits the individual line down to two parts: date and number entries and takes the date
             DateTime date = DateTime.Parse(line.Split(",")[0]); 
+            // 4. Program splits the individual line down to two parts: date and number entries and takes the number entries, and then takes the final entry and saves it as 'avg'
             string[] entryStr = line.Split(",")[1].Split("|");
             double avg = double.Parse(entryStr.Last());
-
-
+            // 5. Program converts the list of number entries (that were strings) into integers
             int[] entryInt = entryStr.SkipLast(1).Select(int.Parse).ToArray();
 
             Console.WriteLine($"\nWeek of {date:MMM}, {date:dd}, {date:yyyy}");
